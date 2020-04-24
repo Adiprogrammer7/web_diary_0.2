@@ -18,14 +18,19 @@
         }
     </style>
 
-    <div class="navbar-nav px-3 p-1 bg-dark mb-3">
-        {% if current_user.is_authenticated %}
-            <a class="nav-item nav-link text-light" href="{{url_for('logout')}}">Logout</a>
+    
+    {% if current_user.is_authenticated %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="nav-item nav-link text-light" href= "{{url_for('about')}}">About</a >
-        {% else %}
+            <a class="nav-item nav-link text-light" href="{{url_for('contact_me')}}">Contact me</a>
+            <a class="nav-item nav-link text-light" href="{{url_for('logout')}}">Logout</a>
+        </nav>
+    {% else %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="nav-item nav-link text-light" href="{{url_for('index')}}">Web Diary</a>
-        {% endif %}
-    </div>
+        </nav>  
+    {% endif %}
+    
 
     <div class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}

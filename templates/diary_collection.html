@@ -4,15 +4,15 @@
         <div class="col-sm-9">
             <form action="/diary_collection" method="POST" class="form-inline form-group m-1 mt-3 mb-4">
                 {{ form.hidden_tag() }}
-                {{ form.search(class= "nav-item form-control form-control-md mt-1", placeholder= "Enter a keyword..") }}
-                {{ form.search_btn(class= "btn btn-primary ml-1 mt-1") }}
+                {{ form.search(class= "nav-item form-control form-control-md mt-1 mr-1", placeholder= "Title search...") }}
+                {{ form.search_btn(class= "btn btn-secondary mt-1") }}
             </form>
         </div>
 
         <div class="col-sm-3">
             <div class="m-1 mt-3 mb-4">
                 <a href="/showcase" class="nav-item">
-                    <button class="btn btn-danger mt-1" type="button">+ Write New</button>
+                    <button class="btn btn-primary mt-1" type="button">+ Write New</button>
                 </a>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <h4>{{diary.title}}</h4>
                 <small class="text-muted">Date: {{diary.date_posted.date()}}</small>
                 <p>{{diary.content}}</p>
-                <a href="/edit_diary/{{ diary.id }}" class= 'btn btn-primary mb-1'>Edit</a>
+                <a href="/edit_diary/{{ diary.id }}" class= 'btn btn-success mb-1'>Edit</a>
                 <a href="/delete/{{ diary.id }}" class= 'btn btn-danger mb-1'>Delete</a>
             </li>
         {% endfor %}

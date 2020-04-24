@@ -94,6 +94,12 @@ def index():
 def about():
     return render_template('about.html')
 
+
+#A route accessible even user is not logged in with some links to get to me. 
+@app.route('/contact_me')
+def contact_me():
+    return render_template('contact_me.html')
+
 @app.route('/showcase', methods= ['GET', 'POST'])
 @login_required
 def showcase():
