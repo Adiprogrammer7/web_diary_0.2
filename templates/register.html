@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <p class="lead text-center border-bottom my-4 pb-2">Create an account</p>
+    <form action="/register" method="POST">
+        {{ form.hidden_tag() }}
+        {% if form.register_username.errors %}
+            {{ form.register_username(placeholder= 'Username...', class= "form-control form-control-md is-invalid mt-3") }}
+            <div class="invalid-feedback">
+                {% for error in form.register_username.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.register_username(placeholder= 'Username...', class= "form-control form-control-md mt-3") }}
+        {% endif %}
+
+        {% if form.register_pass.errors %}
+            {{ form.register_pass(placeholder= 'Password...', class= "form-control form-control-md mt-3 is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.register_pass.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.register_pass(placeholder= 'Password...', class= "form-control form-control-md mt-3") }}
+        {% endif %}
+    
+        {% if form.register_confirm_pass.errors %}
+            {{ form.register_confirm_pass(placeholder= 'Confirm Password', class= "form-control form-control-md is-invalid mt-3") }}
+            <div class="invalid-feedback">
+                {% for error in form.register_confirm_pass.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.register_confirm_pass(placeholder= 'Confirm Password', class= "form-control form-control-md mt-3") }}
+        {% endif %}
+        
+        {{ form.register_btn(class= 'btn btn-md btn-danger mt-3') }}
+    </form>
+
+    <small class="text-muted mx-4">
+        <p>
+            Already have an account? <a href="{{url_for('login')}}">Login</a>
+        </p>
+    </small>
+
+{% endblock %}

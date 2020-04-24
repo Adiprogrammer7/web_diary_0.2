@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h3 class="text-center border-bottom my-4 pb-2">Write Diary...</h3>
+    <form action="/showcase" method="POST">
+        {{ form.hidden_tag() }}
+        {% if form.title.errors %}
+            {{ form.title(placeholder= 'Title..', class= "form-control form-control-md mt-3 is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.title.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.title(placeholder= 'Title..', class= "form-control form-control-md mt-3") }}
+        {% endif %}
+
+        {% if form.content.errors %}
+            {{ form.content(placeholder= 'Start writing...', class= "form-control form-control-md mt-3 is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.content.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.content(cols="25", rows="18", placeholder= 'Start writing...', class= "form-control form-control-md mt-3") }}
+        {% endif %}
+
+        {{ form.save_btn(class= 'btn btn-md btn-success mt-3 mb-3') }}
+
+    </form>
+
+{% endblock %}

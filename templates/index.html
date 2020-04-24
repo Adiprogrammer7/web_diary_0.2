@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="jumbotron text-center">
+        <div class="page-header">
+            <h1>Web Diary 0.1</h1>
+        </div>
+        <div>
+            A way to express yourself when no one is there to hear you. This is the place to trust and express yourself. Let's build a good habit.
+        </div>
+
+        <a href="{{url_for('login')}}" class="btn btn-success m-1 mt-2 btn_hover">Login</a>
+
+        <a href="{{url_for('register')}}" class="btn btn-primary m-1 mt-2 btn_hover">Register</a>
+
+    </div>
+
+    <div class="text-center jumbotron">
+        <p class="lead">Create an account and get started!</p>
+        <img src="../static/img/first_look.png" style="width: 100%" class="rounded" alt="first look on web diary application.">
+    </div>
+
+{% endblock %}

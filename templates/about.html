@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="jumbotron text-center">
+        <div class="display-4 pb-5">Welcome to Web Diary 0.1</div>
+        <div class="lead">
+            <p class="p-2">
+                This is a platform where you can let your thoughts speak, let your words fly and where you can trust. Writing diary reduces anxiety, stress and really helps you to analyse your life. Its a secure platform built on flask framework where you can create and account then login and then just fire your words out. 
+            </p>
+            <p class="p-2">
+                After creating your account you will be able to write diarys with nice headings and those will be automatically stored with date you wrote. You also get search functionality so search within headings of your previously written diarys. So, go ahead and try it out!
+            </p>
+
+            <a class="btn btn-success" href="{{url_for('showcase')}}" role="button">Get Started</a>
+        </div>
+    </div>
+{% endblock %}

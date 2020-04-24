@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <p class="lead text-center border-bottom my-4 pb-2">Log In</p>
+    <form action="/login" method="POST">
+        {{ form.hidden_tag() }}
+        {% if form.login_username.errors %}
+            {{ form.login_username(placeholder= 'Username...', class= "form-control form-control-md mt-3 is-invalid") }}  
+            <div class="invalid-feedback">
+                {% for error in form.login_username.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.login_username(placeholder= 'Username...', class= "form-control form-control-md mt-3") }}
+        {% endif %}
+
+        {% if form.login_pass.errors %}
+            {{ form.login_pass(placeholder= 'Password...', class= "form-control form-control-md mt-3 is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.login_pass.errors %}
+                    <span>{{error}}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.login_pass(placeholder= 'Password...', class= "form-control form-control-md mt-3") }}
+        {% endif %}
+
+        <div class="form-check pt-2">
+            {{ form.login_remember(class= "form-check-input") }}
+            {{ form.login_remember.label(class= "form-check-label") }}
+        </div>
+        
+        {{ form.login_btn(class= 'btn btn-md btn-danger mt-3') }}
+    </form>
+
+    <small class="text-muted mx-4">
+        <p>
+            Don't have an account? <a href="{{url_for('register')}}">Create an account</a>
+        </p>
+    </small>
+{% endblock %}

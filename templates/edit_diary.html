@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1 class="display-4 text-center border-bottom my-4 pb-2">Edit Diary</h1>
+    <form action="/edit_diary/{{diary.id}}" method="POST" class="form-group">
+        <div class= "form-group">
+            <input type="text" class= "form-control form-control-md" name="title" value= "{{ diary.title }}" required>
+        </div>
+        <br>
+        <div class= "form-group">
+            <textarea name= "content" class= "form-control form-control-md"id="" cols="100" rows="8" placeholder="Enter your feedback.." required>{{diary.content}}</textarea>
+        </div>
+        <input type="submit" value="Save" class="btn btn-success">
+    </form> 
+{% endblock %}
